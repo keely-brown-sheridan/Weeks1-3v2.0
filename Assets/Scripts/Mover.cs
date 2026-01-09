@@ -5,6 +5,7 @@ public class Mover : MonoBehaviour
     public float speed = 0.02f;
     public float xMax;
     public float xMin;
+    public Camera gameCamera;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,12 +21,23 @@ public class Mover : MonoBehaviour
         moverXPos.x = moverXPos.x + speed;
         transform.position = moverXPos;
 
-        if(xMax < transform.position.x)
+        //Screen.width;
+        //gameCamera.WorldToScreenPoint(//somerandomvector);
+
+        //set xMax to wherever is too far to the right for the player to see
+        Vector3 screenTransformPosition = gameCamera.WorldToScreenPoint(transform.position);
+        xMax = Screen.width;
+
+        //set xMin to wherever is too far to the left for the player to see
+        xMin = 0;
+
+
+        if (xMax < screenTransformPosition.x)
         {
             speed *= -1;
         }
 
-        if (xMin > transform.position.x)
+        if (xMin > screenTransformPosition.x)
         {
             speed *= -1;
         }
