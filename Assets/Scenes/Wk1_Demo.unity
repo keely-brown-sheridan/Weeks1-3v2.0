@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b3f4418a668f447a1666a49273ece8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SquareMover
-  speed: 0.01
+  speed: 1
   xMax: 4
   xMin: -4
 --- !u!212 &1163388433
